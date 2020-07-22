@@ -43,6 +43,8 @@ class WorldsController < ApplicationController
     end
 
     def edit
+        @user = current_user
+            @world = World.find(params[:id])
     end
 
     def update

@@ -2,5 +2,9 @@
 
 <%= render 'form', world: @world %>
 
-<%= link_to 'Show', @world %> |
+<%= form_tag(world_path(@world), method: "destroy") do %>
+    <input type="submit" value="Destroy" class="button is-danger">
+<% end %>
+
+<%= link_to 'Show', @world %> 
 <%= link_to 'Back', worlds_path %>
