@@ -1,20 +1,22 @@
 Rails.application.routes.draw do
-  resources :worlds, except: [:show]
+  resources :characters 
+  resources :plots
+  resources :worlds do 
+    resources :characters, only: [:show, :new]
+    resources :plots, only: [:show, :new]
+  end
 
   root 'application#home'
  
   #nested show url
-  get 'worlds/:world_id/characters/:character_id' 
-        =>
-  get 'worlds/:world_id/plots/:plot_id' 
-        =>
+  #get 'worlds/:world_id/characters/:character_id'       
+  #get 'worlds/:world_id/plots/:plot_id' 
+        
 
   #nested new url
-  get 'worlds/:world_id/characters/new' 
-        =>
-  get 'worlds/:world_id/plots/new' 
-        =>
-
+  #get 'worlds/:world_id/characters/new' 
+  #get 'worlds/:world_id/plots/new' 
+        
   #form display with validations
   #in view folder world, under form
   
