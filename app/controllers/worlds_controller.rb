@@ -1,6 +1,6 @@
 class WorldsController < ApplicationController
     before_action :authenticate_user!
-    before_action :set_world, except: [:index, :new, :create, :show]
+    before_action :set_world, except: [:index, :new, :create, :show, :destroy]
 
     def index
         @worlds = World.all
