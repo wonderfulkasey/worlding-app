@@ -9,7 +9,43 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
-  </body>
+     <body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container">
+        <a class="navbar-brand" href="/">Worlding</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+             <span class="navbar-toggler-icon"></span>
+          </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+              <a class="nav-link" href="/worlds">Worlds</a>
+         </ul>
+        <p class="navbar-text float-right">
+          <% if user_signed_in? %>
+            Logged in as <strong><%= current_user.email %></strong>.
+            <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+              <% else %>
+            <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+            <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %> | 
+            <%= link_to "Login With Github", user_github_omniauth_authorize_path, :class => 'navbar-link'  %>
+          <% end %>
+        </p>
+       </div>
+      </div>
+    </nav>
+
+
+      <%=render 'layouts/alerts'%>
+
+       <div class="container">
+         <%= yield %>
+       </div>
+
+      <footer>
+         <div class="container">
+            Worlding <%= Time.now.year %>
+         </div>
+      </footer>
 </html>
