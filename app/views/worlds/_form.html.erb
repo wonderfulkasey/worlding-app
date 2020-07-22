@@ -1,39 +1,22 @@
- <%= form_for world do |form| %>
+<%= form_for(world) do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
 
-  <% if world.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(world.errors.count, "error") %> prohibited this world from being saved:</h2>
-      <ul>
-        <% world.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<br>
 
- 
- <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+<%= f.label :genre %>
+<%= f.text_field :genre %>
 
-  <div class="field">
-    <%= form.label :genre %>
-    <%= form.text_area :genre %>
-  </div>
+<br>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
+<%= f.label :description %>
+<%= f.text_field :description %>
 
-  <div class="field">
-    <%= form.label :aesthetic %>
-    <%= form.text_area :aesthetic %>
-  </div>
+<br>
+
+<%= f.label :aesthetic %>
+<%= f.text_field :aesthetic %>
 
 
-  <div class="actions">
-    <%= form.submit 'Add World' %>
-  </div>
-<% end %>
+<input type="submit" value="Submit" class="button is-primary">
+    <% end %>

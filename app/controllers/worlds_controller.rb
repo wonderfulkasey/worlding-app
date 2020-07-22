@@ -30,15 +30,15 @@ class WorldsController < ApplicationController
     end
 
     def create
-        @world = World.new(world_params)
-        @world.user_id = current_user.id
+       # @world = World.new(world_params)
+        @world = current_user.worlds.build(world_params)
 
-        if @world.valid?
-            @world.save
+        if @world.save
+            flash[:notice] = "World was Sucessfully created!"
             redirect_to world_path(@world)
         else
-            flash[:errors] = @world.errors.full_messages
-            render :new
+            flash[:alert] = "World not created. Try again."
+            render '/worlds/new'
         end 
     end
 

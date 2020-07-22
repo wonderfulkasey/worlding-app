@@ -1,12 +1,5 @@
-<section class="hero is-primary is-bold">
-    <div class="hero-body">
-        <div class="container">
-            <h2 class="subtitle">New World Form</h2>
-        </div>
-    </div>
-</section>
-<br>
+<h1>New World</h1>
 
-<%= render "application/errors" %>
+<%= render 'form', world: @world %>
 
-<%= render partial: "form", locals: {world: @world} %>
+<%= link_to 'Back', worlds_path %>

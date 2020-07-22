@@ -1,0 +1,5 @@
+<ul>
+    <% Plot.all.each do |p| %>
+       <li><%= link_to p.name, world_plot_path(p.world, p) %></li>
+    <% end %> 
+</ul>
