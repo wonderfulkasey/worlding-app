@@ -1,0 +1,65 @@
+<section class="hero is-primary is-bold">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title"><%= @world.name %></h1>
+        </div>
+    </div>
+</section>
+
+<br>
+
+<% if @world.user_id == current_user.id %>
+    <%= link_to "Edit world", edit_world_path(@world) %>  |||
+    <%= link_to 'Destroy', @world.destroy , data: { confirm: 'Are you sure?' } %> </strong> <br>
+    <h2>Made by you!</h2>
+    <% else %>
+    <h2> Made by <%= @world.user.email %> </h2>
+    <br>
+<% end %>
+
+        <div class="columns">
+        <div class="column">
+        <div>
+        <strong>aesthetic:</strong> <%= @world.genre %> <br />
+        <strong>description:</strong> <%= @world.description %> <br />
+        <strong>big_bad:</strong> <%= @world.aesthetic %> <br />
+        </div>
+
+        <br>
+
+           <h3> Add a <%= link_to "New Character", new_world_character_path(@world) %> </h3>
+            <h3>All characters in <%= @world.name %></h3>
+            <div>
+            <%= render partial: "characters/list", locals: {characters: @characters} %>
+            </div>
+            </div>
+            </div>
+
+            <br>
+
+            Add a <%= link_to "New Plot", new_world_plot_path(@world) %>
+            <h3>All plots in <%= @world.name %></h3>
+            <div>
+            <%= render partial: "plots/list", locals: {plots: @plots} %>
+            </div>
+            </div>
+            </div>
+
+            <br>
+
+
+        <div class="column">
+             <div>
+                <%= render partial: "characters/list", locals: {characters: @characters} %>
+             </div>
+        </div> <br>
+
+        <div class="column">
+             <div>
+                <%= render partial: "plots/list", locals: {plots: @plots} %>
+             </div>
+        </div>
+</div>
+</div>
+</div>
+</div>
