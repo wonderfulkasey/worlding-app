@@ -1,13 +1,19 @@
 <h1> Worlds </h1>
 
-<h3> Hello <%=current_user.name.capitalize %>! Here are your worlds</h3>
-
+<h3> Hello <%=current_user.name.capitalize %>! Here are your worlds.
 <ul>
     <% current_user.worlds.each do |world| %>
         <li><%= link_to world.name, world_path(world) %></li>
     <% end %>
 </ul>
 
+<h3>Would you like to visit the Worlds' List?</h3>
+
+<ul>
+<div>
+<%= render partial: "worlds/list", locals: {worlds: @worlds} %>
+</div>
+</ul>
 
 <p class="lead">
     <a class="btn btn-secondary btn-sm" href="worlds/new" role="button">Create New world</a>
