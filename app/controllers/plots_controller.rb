@@ -64,9 +64,9 @@ class PlotsController < ApplicationController
 
     def plot_params
         params.require(:plot).permit(
-            :title
-            :importance
-            :description
+            :title,
+            :importance,
+            :description,
             :world_id
         )
     end

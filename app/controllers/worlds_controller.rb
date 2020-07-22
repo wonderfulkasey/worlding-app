@@ -65,9 +65,9 @@ class WorldsController < ApplicationController
 
     def world_params
         params.require(:world).permit(
-            :name
-            :genre
-            :description
+            :name,
+            :genre,
+            :description,
             :aesthetic
         )
     end

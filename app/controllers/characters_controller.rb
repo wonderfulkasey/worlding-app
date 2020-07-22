@@ -64,11 +64,11 @@ class CharactersController < ApplicationController
 
     def character_params
         params.require(:character).permit(
-            :name
-            :alignment
-            :species
-            :character_class
-            :description
+            :name,
+            :alignment,
+            :species,
+            :character_class,
+            :description,
             :world_id
         )
     end

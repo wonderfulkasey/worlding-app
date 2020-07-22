@@ -1,0 +1,28 @@
+ <%= form_for world do |f| %>
+
+ 
+ <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :genre %>
+    <%= form.text_area :genre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :aesthetic %>
+    <%= form.text_area :aesthetic %>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit 'Add World' %>
+  </div>
+<% end %>
