@@ -59,8 +59,10 @@ class WorldsController < ApplicationController
     end
 
     def destroy
-       # @world.destroy
-        #redirect_to worlds_path
+      @world = World.find(params[:id])
+      @world.destroy
+
+      redirect_to worlds_path
     end
 
     private 
