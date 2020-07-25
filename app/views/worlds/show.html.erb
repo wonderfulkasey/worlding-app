@@ -17,5 +17,18 @@
   <strong>Description:</strong>
   <%= @world.description %>
 </p>
+
+<div>
+        <strong>Add a <%= link_to "New character", new_world_character_path(@world) %> at this world</strong>
+        </div>
+
+<% unless @characters.empty? %>
+            <h3>All characters at <%= @world.name %></h3>
+            <div>
+            <%= render partial: "characters/list", locals: {characters: @characters} %>
+            </div>
+        <% else %>
+            <h3>There are no characters here yet! Add one by following the link above.</h3>
+        <% end %>
  
 <%= link_to 'Back', worlds_path %>
