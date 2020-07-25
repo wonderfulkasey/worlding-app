@@ -13,6 +13,10 @@
 
 <br>
 
+<div>
+<strong>Add a <%= link_to "New character", new_world_character_path(@world) %> at this world</strong>
+</div>
+
 <%= form_tag(world_path(@world), method: "delete") do %>
     <input type="submit" value="Delete" class="button is-danger">
 <% end %>
