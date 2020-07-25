@@ -31,7 +31,7 @@ class WorldsController < ApplicationController
 
     def create
        # @world = World.new(world_params)
-        @world = current_world.worlds.build(world_params)
+        @world = current_user.worlds.build(world_params)
 
         if @world.save
             flash[:notice] = "World was Sucessfully created!"
@@ -50,8 +50,8 @@ class WorldsController < ApplicationController
         #@world.update(world_params)
         @world = World.find(params[:id])
 
-        if @world.save
-            redirect_to "/worlds"
+        if @world.update(world_params)
+            redirect_to world_path(@world)
         else
             flash[:errors] = @world.errors.full_messages
             render :edit
