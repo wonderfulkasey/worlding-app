@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  resources :characters 
-  resources :plots
+  #resources :characters 
+  #resources :plots
   resources :worlds do 
-    resources :characters, only: [:show, :new]
-    resources :plots, only: [:show, :new]
+    resources :characters
+   #resources :plots
   end
+
+  resources :characters 
 
   root 'application#home'
  

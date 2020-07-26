@@ -1,15 +1,10 @@
 class CharactersController < ApplicationController
     before_action :authenticate_user!
+    before_action :set_world
     before_action :set_character, except: [:index, :new, :create, :show, :destroy]
 
     def index
-        if @world.user_id = current_user
-            @world = World.find_by(id:params[:world_id])
-            @characters = @world.characters.all
-        else
-            flash[:alert] = "not your page"
-            redirect_to worlds_path
-        end
+        @characters = @world.characters
     end
 
     def show
@@ -18,11 +13,7 @@ class CharactersController < ApplicationController
     end
 
     def new
-        if params[:world_id] && !World.exists?(params[:world_id])
-            redirect_to worlds_path, alert: "world not found."
-          else
-            @character = Character.new(world_id: params[:world_id])
-          end
+        @character = @world.characters.build
     end
 
     def create
