@@ -2,6 +2,7 @@
   
 <% if @plot.user_id == current_user.id %>
     <%= link_to "Edit plot", edit_plot_path(@plot) %> <br>
+  <%= link_to "new plot", new_world_plot_path(@world) %>
   <% else %>
   created by <% user_path(@plot.user) %>
 <% end %>
