@@ -1,5 +1,6 @@
 <% if @world.user_id == current_user.id %>
     <%= link_to "Edit world", edit_world_path(@world) %> <br>
+    <%= link_to "new character", new_world_character_path(@world) %>
 <% end %>
 
 <p>
@@ -27,8 +28,4 @@
             <%= render partial: "characters/list", locals: {characters: @characters} %>
             </div>
 
-<div>
-    <strong><%= link_to "world plots", @world_plots_path %></strong>
-    </div>
-        
 <%= link_to 'Back', worlds_path %>
