@@ -1,5 +1,11 @@
 <strong>world:</strong> <%= link_to @world.name, world_path(@world) %> <br>
   
+<% if @plot.user_id == current_user.id %>
+    <%= link_to "Edit plot", edit_plot_path(@plot) %> <br>
+  <% else %>
+  created by <% user_path(@plot.user) %>
+<% end %>
+
 <p>
   <strong>title:</strong>
   <%= @plot.title  %>
