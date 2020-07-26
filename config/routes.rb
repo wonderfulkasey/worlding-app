@@ -31,7 +31,6 @@ Rails.application.routes.draw do
   #view worlds by most characters in world
   get 'worlds/most-characters' => 'worlds#show'
 
-
   devise_for :users, :controllers => { registrations: "registrations",
      omniauth_callbacks: "callbacks"}
 

@@ -26,8 +26,9 @@
             <div>
             <%= render partial: "characters/list", locals: {characters: @characters} %>
             </div>
+
+<div>
+    <strong><%= link_to "world plots", @world_plots_path %></strong>
+    </div>
         
-          <h3>All plots at <%= @world.name %></h3>
-          <%= link_to 'plot list', @world_plots_path %>
- 
 <%= link_to 'Back', worlds_path %>

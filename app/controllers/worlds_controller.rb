@@ -4,7 +4,7 @@ class WorldsController < ApplicationController
 
     def index
         @worlds = World.all
-    end
+   end
 
     def show
         if params[:id] == "most-characters"
