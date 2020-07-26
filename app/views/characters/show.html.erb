@@ -31,3 +31,7 @@
   <%= @character.character_class %>
 </p>
  
+    <h3>All plots for <%= @world.name %></h3>
+            <div>
+            <%= render partial: "plots/list", locals: {plots: @plots} %>
+            </div>

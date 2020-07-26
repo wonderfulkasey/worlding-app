@@ -10,6 +10,7 @@ class CharactersController < ApplicationController
     def show
        # @character = Character.find(params[:id])
         set_character
+        @plots = @world.plots
     end
 
     def new
