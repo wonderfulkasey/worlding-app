@@ -6,7 +6,12 @@ Rails.application.routes.draw do
    #resources :plots
   end
 
+  resources :worlds do
+    resources :plots
+  end
+
   resources :characters 
+  resources :plots
 
   root 'application#home'
  
