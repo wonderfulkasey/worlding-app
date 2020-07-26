@@ -16,7 +16,7 @@ class WorldsController < ApplicationController
     end
 
     def character
-        @character = Character.find(params[:hike_id])
+        @character = Character.find(params[:character_id])
         render template: 'characters/show'
     end
 
