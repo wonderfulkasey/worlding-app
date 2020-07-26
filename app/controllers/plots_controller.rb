@@ -1,54 +1,45 @@
 class PlotsController < ApplicationController
     before_action :authenticate_user!
-    before_action :set_plot, except: [:index, :new, :create]
+    before_action :set_world
+    before_action :set_plot, except: [:index, :new, :create, :show, :destroy]
 
     def index
-        @plots = Plot.all
+        @plots = @world.plots
     end
 
     def show
-        #@plot = plot.find(params[:id])
-        @world = @plot.world
+       # @plot = plot.find(params[:id])
+        set_plot
     end
 
     def new
-        if params[:world_id] && !World.exists?(params[:world_id])
-            redirect_to worlds_path, alert: "World not found."
-        else
-             @plot = Plot.new(world_id: params[:world_id])
-        end
+        @plot = @world.plots.build
     end
 
     def create
         @plot = Plot.new(plot_params)
+        #@plot = current_user.plots.build(plot_params)
         @plot.user_id = current_user.id
-          
+
           if @plot.valid?
-              @plot.save
-              redirect_to plot_path(@plot)
+            @plot.save
+            redirect_to plot_path(@plot)
           else
             flash[:errors] = @plot.errors.full_messages
             render :new
-          end
-    end
-
-    def edit
-        if params[:world_id]
-            w = World.find_by(id: params[:world_id])
-            if w.nil?
-              redirect_to worlds_path, alert: "World not found."
-            else
-              @plot = w.plots.find_by(id: params[:id])
-              redirect_to world_plots_path(w), alert: "Plot not found." if @plot.nil?
-            end
         end
     end
 
+    def edit
+       @plot = Plot.find(params[:id])
+    end
+
     def update
-        @plot.update(plot_params)
+        #@plot.update(plot_params)
+        @plot = Plot.find(params[:id])
         
-        if @plot.save  
-            redirect_to @plot
+        if @plot.update(plot_params)
+            redirect_to plot_path(@plot)
         else
             flash[:errors] = @plot.errors.full_messages
             render :edit
@@ -56,7 +47,9 @@ class PlotsController < ApplicationController
     end
 
     def destroy
+        @plot = Plot.find(params[:id])
         @plot.destroy
+
         redirect_to plots_path 
     end
 
@@ -67,7 +60,13 @@ class PlotsController < ApplicationController
             :title,
             :importance,
             :description,
+            :user_id,
             :world_id
         )
     end
+
+    def set_world
+        @world = World.find_by(id:params[:world_id])
+    end
+
 end
