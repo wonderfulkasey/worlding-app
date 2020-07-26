@@ -28,8 +28,6 @@
             </div>
         
           <h3>All plots at <%= @world.name %></h3>
-            <div>
-            <%= render partial: "plots/list", locals: {plots: @plots} %>
-            </div>
+          <%= link_to 'plot list', @world_plots_path %>
  
 <%= link_to 'Back', worlds_path %>
