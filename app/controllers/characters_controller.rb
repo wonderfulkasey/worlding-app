@@ -14,7 +14,7 @@ class CharactersController < ApplicationController
 
     def show
        # @character = Character.find(params[:id])
-        @world = @character.world
+        set_character
     end
 
     def new
