@@ -23,7 +23,7 @@ class CharactersController < ApplicationController
 
           if @character.valid?
             @character.save
-            redirect_to character_path(@character)
+            redirect_to world_path(@world)
           else
             flash[:errors] = @character.errors.full_messages
             render :new
