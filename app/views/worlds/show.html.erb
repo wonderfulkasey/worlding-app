@@ -18,13 +18,14 @@
   <%= @world.description %>
 </p>
 
-<% unless @characters.empty? %>
             <h3>All characters at <%= @world.name %></h3>
             <div>
             <%= render partial: "characters/list", locals: {characters: @characters} %>
             </div>
-        <% else %>
-            <h3>There are no characters here yet! </h3>
-        <% end %>
+        
+          <h3>All plots at <%= @world.name %></h3>
+            <div>
+            <%= render partial: "plots/list", locals: {plots: @plots} %>
+            </div>
  
 <%= link_to 'Back', worlds_path %>
