@@ -1,3 +1,7 @@
+<% if @world.user_id == current_user.id %>
+    <%= link_to "Edit world", edit_world_path(@world) %> <br>
+<% end %>
+
 <p>
   <strong>Name:</strong>
   <%= @world.name %>

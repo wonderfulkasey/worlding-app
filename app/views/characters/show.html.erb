@@ -1,5 +1,11 @@
 <strong>world:</strong> <%= link_to @world.name, world_path(@world) %> <br>
   
+<% if @character.user_id == current_user.id %>
+    <%= link_to "Edit character", edit_character_path(@character) %> <br>
+  <% else %>
+  created by <% user_path(@character.user) %>
+<% end %>
+
 <p>
   <strong>Name:</strong>
   <%= @character.name  %>

@@ -12,7 +12,8 @@ class WorldsController < ApplicationController
         else
             set_world
         end
-        @characters = @world.characters.reverse
+        @characters = @world.characters
+        @plot = @world.plots
     end
 
     def character
