@@ -4,7 +4,7 @@ class PlotsController < ApplicationController
     before_action :set_plot, except: [:index, :new, :create, :show, :destroy]
 
     def index
-        @plots = @world.plots
+        redirect_to worlds_path(@worlds)
     end
 
     def show

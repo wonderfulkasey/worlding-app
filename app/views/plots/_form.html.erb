@@ -1,12 +1,12 @@
 <%= form_for(@plot) do |f| %>
 
 
- <% if form_plot.world.nil? %>
+ <% if @plot.world.nil? %>
         <label class="label">plot world:</label>
         <%= f.select :world_id, options_from_collection_for_select(World.all, :id, :title) %><br>
         <i>Don't see your world? Create a new world <%= link_to "here.", new_world_path %></i><br><br>
     <% else %>
-        <%= hidden_field_tag "plot[world_id]", form_plot.world_id %>
+        <%= hidden_field_tag "plot[world_id]", @plot.world_id %>
     <% end %>
 
     <label class="label"> title: </label>
