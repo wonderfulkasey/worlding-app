@@ -2,7 +2,6 @@
   
 <% if @character.user_id == current_user.id %>
     <%= link_to "Edit character", edit_world_character_path(@world) %> <br>
-  <%= link_to "new plot", new_world_plot_path(@world) %>
  
   <% else %>
  
@@ -34,6 +33,4 @@
 </p>
  
     <h3>All plots for <%= @world.name %></h3>
-            <div>
-            <%= render partial: "plots/list", locals: {plots: @plots} %>
-            </div>
+         

@@ -10,7 +10,6 @@ class CharactersController < ApplicationController
     def show
        # @character = Character.find(params[:id])
         set_character
-        @plots = @world.plots
     end
 
     def new
@@ -38,9 +37,10 @@ class CharactersController < ApplicationController
     def update
         #@character.update(character_params)
         @character = Character.find(params[:id])
-        
+        @character.user_id = current_user.id
+
         if @character.update(character_params)
-            redirect_to character_path(@character)
+            redirect_to worlds_path(@worlds)
         else
             flash[:errors] = @character.errors.full_messages
             render :edit
