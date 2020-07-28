@@ -4,7 +4,7 @@ class CharactersController < ApplicationController
     before_action :set_character, except: [:index, :new, :create, :show, :destroy]
 
     def index
-        @characters = @world.characters
+        redirect_to worlds_path(@worlds)
     end
 
     def show

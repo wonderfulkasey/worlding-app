@@ -23,7 +23,7 @@ class PlotsController < ApplicationController
 
           if @plot.valid?
             @plot.save
-            redirect_to plot_path(@plot)
+            redirect_to worlds_path(@plot)
           else
             flash[:errors] = @plot.errors.full_messages
             render :new
