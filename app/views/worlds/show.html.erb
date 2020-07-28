@@ -28,4 +28,11 @@
             <%= render partial: "characters/list", locals: {characters: @characters} %>
             </div>
 
+            <% @plots.each do |p| %>
+                <li>
+                  <li><%= link_to p.title, world_plot_path(p.world, p) %></li>
+ 
+                </li>
+            <% end %>
+
 <%= link_to 'Back', worlds_path %>
