@@ -11,8 +11,8 @@ class World < ApplicationRecord
     #validates :genre, presence: true 
 
     #where you world by character count
-    def self.most_characters(user)
-        where(completed: true, user_id: user.id).count
+    def self.most_plots
+        joins(:plots).group("worlds.id").order("COUNT(*) DESC").select("worlds.*").limit(1)
     end
 
 end

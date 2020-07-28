@@ -7,8 +7,8 @@ class WorldsController < ApplicationController
    end
 
     def show
-        if params[:id] == "most-characters"
-            @world = World.most_characters.first
+        if params[:id] == "most-plots"
+            @world = World.most_plots.first
         else
             set_world
         end

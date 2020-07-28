@@ -28,8 +28,8 @@ Rails.application.routes.draw do
   #in view folder world, under form
   
   #custom active record scope 
-  #view worlds by most characters in world
-  get 'worlds/most-characters' => 'worlds#show'
+  #view worlds by most plots in world
+  get 'worlds/most-plots' => 'worlds#show'
 
   devise_for :users, :controllers => { registrations: "registrations",
      omniauth_callbacks: "callbacks"}
