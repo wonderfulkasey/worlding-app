@@ -39,7 +39,7 @@ class PlotsController < ApplicationController
         @plot = Plot.find(params[:id])
         
         if @plot.update(plot_params)
-            redirect_to plot_path(@plot)
+            redirect_to worlds_path(@worlds)
         else
             flash[:errors] = @plot.errors.full_messages
             render :edit
