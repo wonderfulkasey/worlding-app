@@ -13,6 +13,7 @@ class WorldsController < ApplicationController
             set_world
         end
         @characters = @world.characters
+      
     end
 
     def character

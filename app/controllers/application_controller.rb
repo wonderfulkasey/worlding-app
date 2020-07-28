@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
     helper_method :set_world, :set_character, :set_plot
 
     def home
+        
     end 
 
     def set_world
