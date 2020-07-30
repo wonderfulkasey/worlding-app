@@ -10,7 +10,7 @@ class World < ApplicationRecord
     validates :name, presence: true
     #validates :genre, presence: true 
 
-    #where you world by character count
+    #most plots in a world
     def self.most_plots
         joins(:plots).group("worlds.id").order("COUNT(*) DESC").select("worlds.*").limit(1)
     end

@@ -1,16 +1,14 @@
 Rails.application.routes.draw do
   get 'errors/not_found'
   get 'errors/internal_server_error'
-  #resources :characters 
-  #resources :plots
+  
   resources :worlds do 
-    resources :characters
-   #resources :plots
+    resources :characters, :plots
   end
 
-  resources :worlds do
-    resources :plots
-  end
+  #resources :worlds do
+   # resources :plots
+  #end
 
   resources :characters 
   resources :plots
@@ -33,8 +31,9 @@ Rails.application.routes.draw do
   #view world with most plots 
   get 'worlds/most-plots' => 'worlds#show'
 
+
   match "/404", :to => "errors#not_found", :via => :all
-match "/500", :to => "errors#internal_server_error", :via => :all
+  match "/500", :to => "errors#internal_server_error", :via => :all
 
 
   devise_for :users, :controllers => { registrations: "registrations",
